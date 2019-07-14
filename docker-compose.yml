@@ -3,5 +3,7 @@ services:
   app:
     build: .
     container_name: "go_app"
+    volumes:
+      - ./:/go
     ports:
       - 1323:1323
