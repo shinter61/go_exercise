@@ -2,6 +2,6 @@ version: '3'
 services:
   app:
     build: .
-    container_name: "app_go"
+    container_name: "go_app"
     ports:
-      - 8080:8080
+      - 1323:1323
