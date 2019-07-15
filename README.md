@@ -1,6 +1,6 @@
 ## 概要  
 
-goの試し書きリポジトリ
+goの試し書きリポジトリ(echo + gorm + mysql + docker)
 
 ## 起動  
 
