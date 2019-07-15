@@ -1,22 +1,33 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 	"github.com/labstack/echo"
 	"../model"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
+func gormConnect() *gorm.DB {
+	db,err := gorm.Open("mysql", "docker_user:docker_user_pwd@(localhost:3306)/docker_db")
+	if err != nil {
+    panic(err.Error())
+  }
+  return db
+}
+
 func CreateUser(c echo.Context) (err error) {
-	u := &model.User{
-		Id : model.Seq,
-	}
-	fmt.Println(u)
-	fmt.Println(model.Seq)
+	db := gormConnect()
+	defer db.Close()
+
+	u := model.User{}
 	if err := c.Bind(u); err != nil {
 		return err
 	}
-	model.Users[u.Id] = u
-	model.Seq++
+	u.Id = 1
+	u.Name = "origin"
+
+	db.Create(&u)
+
 	return c.JSON(http.StatusCreated, u)
 }

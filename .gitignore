@@ -1,4 +1,5 @@
 src/*
+mysql_data/*
 
 !github.com/*
 !golang.org/*

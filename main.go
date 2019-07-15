@@ -1,9 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-  "./handler"
+	"./handler"
+	"database/sql"
+  _ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
@@ -22,4 +25,11 @@ func main() {
 
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))
+
+	db, err := sql.Open("mysql", "docker_user:docker_user_pwd@tcp(127.0.0.1:3306)/docker_db")
+
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(db)
 }

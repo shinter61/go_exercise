@@ -2,8 +2,26 @@ version: '3'
 services:
   app:
     build: .
-    container_name: "go_app"
+    container_name: go_app
+    links:
+      - db
     volumes:
       - ./:/go
     ports:
       - 1323:1323
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+      - ./sqls/init:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: docker_pwd
+      MYSQL_DATABASE: docker_db
+      MYSQL_USER: docker_user
+      MYSQL_PASSWORD: docker_user_pwd
+volumes:
+  mysql_data:
