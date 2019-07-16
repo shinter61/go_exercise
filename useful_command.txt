@@ -1,0 +1,2 @@
+docker exec -it go_db_1 bash
+mysql -u docker_user -h localhost -D docker_db -p
