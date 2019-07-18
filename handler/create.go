@@ -21,9 +21,7 @@ func CreateUser(c echo.Context) (err error) {
 	defer db.Close()
 
 	db.LogMode(true)
-	if !db.HasTable("users") {
-		db.CreateTable(&model.User{})
-	}
+
 	u := &model.User{}
 	if err := c.Bind(u); err != nil {
 		return err

@@ -8,10 +8,15 @@ import (
 )
 
 func GetUser(c echo.Context) (err error) {
+	db := gormConnect()
 	id, _ := strconv.Atoi(c.Param("id"))
-	return c.JSON(http.StatusOK, model.Users[id])
+	user := db.First(&model.User{}, id)
+	return c.JSON(http.StatusOK, user)
 }
 
 func ListUser(c echo.Context) (err error) {
-	return c.JSON(http.StatusOK, model.Users)
+	db := gormConnect()
+	var users []model.User
+	result := db.Find(&users)
+	return c.JSON(http.StatusOK, result)
 }
