@@ -3,16 +3,22 @@ package handler
 import (
 	"net/http"
 	"strconv"
+	"../model"
 	"github.com/labstack/echo"
-		"../model"
 )
 
 func UpdateUser(c echo.Context) (err error) {
-	u := new(model.User)
-	if err := c.Bind(u); err != nil {
-			return err
-	}
+	db := gormConnect()
+	defer db.Close()
+
+	u := &model.User{}
 	id, _ := strconv.Atoi(c.Param("id"))
-	model.Users[id].Name = u.Name
-	return c.JSON(http.StatusOK, model.Users[id])
+	db.First(u, id)
+
+	if err := c.Bind(u); err != nil {
+		return err
+	}
+
+	db.Model(u).Update("Name", u.Name)
+	return c.JSON(http.StatusOK, u)
 }

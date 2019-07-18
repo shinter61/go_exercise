@@ -20,8 +20,6 @@ func CreateUser(c echo.Context) (err error) {
 	db := gormConnect()
 	defer db.Close()
 
-	db.LogMode(true)
-
 	u := &model.User{}
 	if err := c.Bind(u); err != nil {
 		return err
