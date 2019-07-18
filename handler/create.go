@@ -20,14 +20,16 @@ func CreateUser(c echo.Context) (err error) {
 	db := gormConnect()
 	defer db.Close()
 
+	db.LogMode(true)
+	if !db.HasTable("users") {
+		db.CreateTable(&model.User{})
+	}
 	u := &model.User{}
 	if err := c.Bind(u); err != nil {
 		return err
 	}
 
-	u.Name = "fugen"
-
-	db.Table("User").Create(&u)
+	db.Create(&u)
 
 	return c.JSON(http.StatusCreated, u)
 }

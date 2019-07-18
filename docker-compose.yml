@@ -13,6 +13,7 @@ services:
       - db
   db:
     image: mysql:latest
+    container_name: go_db
     volumes:
       - ./mysql_data:/var/lib/mysql
       - ./sqls/init:/docker-entrypoint-initdb.d
