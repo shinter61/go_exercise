@@ -1,7 +1,6 @@
 package handler
 
  import (
-	"log"
 	"net/http"
 	"strconv"
 	"github.com/labstack/echo"
@@ -9,9 +8,12 @@ package handler
 )
 
 func DeleteUser(c echo.Context) (err error) {
-	log.Println(model.Users)
+	db := gormConnect()
+	defer db.Close()
+
+	u := &model.User{}
 	id, _ := strconv.Atoi(c.Param("id"))
-	delete(model.Users, id)
-	log.Println(model.Users)
+	db.First(u, id)
+	db.Delete(u)
 	return c.NoContent(http.StatusNoContent)
 }
