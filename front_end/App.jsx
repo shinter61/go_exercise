@@ -1,12 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import UserList from './user_list/UserList';
+import TopPage from './top/TopPage';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <div>hello</div>
+          <Route exact path='/top' component={TopPage} />
+          <Route exact path='/users' component={UserList} />
         </Switch>
       </BrowserRouter>
     );

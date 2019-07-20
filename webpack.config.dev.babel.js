@@ -8,7 +8,7 @@ export default {
     path.resolve(__dirname, 'front_end/')
   ],
   output:{
-    path: path.resolve(__dirname, 'front_end'),
+    path: path.resolve(__dirname, 'front_end/'),
     publicPath: '/',
     filename: 'bundle.js'
   },

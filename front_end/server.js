@@ -14,12 +14,12 @@ app.use(HMR(compiler));
 
 //GETリクエストでルートにアクセスが会った時の動作
 app.get('/', (req, res)=>{
-  const index = fs.readFileSync('index.html', 'utf-8');
+  const index = fs.readFileSync('./front_end/index.html', 'utf-8');
   res.send(index);
 });
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'), function(err) {
+  res.sendFile(path.join(__dirname, './index.html'), function(err) {
     if (err) {
       res.status(500).send(err);
     }

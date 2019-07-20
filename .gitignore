@@ -1,5 +1,6 @@
 src/*
 mysql_data/*
+node_modules/*
 
 !github.com/*
 !golang.org/*
