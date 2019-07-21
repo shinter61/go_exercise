@@ -1,6 +1,6 @@
 import React from 'react'
 import client from '../config/ApiClient'
-import SaveUserModal from './UpdateUserModal'
+import SaveUserModal from './SaveUserModal'
 import UserTableColumn from './UserTableColumn'
 
 export default class UserList extends React.Component {
@@ -8,7 +8,7 @@ export default class UserList extends React.Component {
     super()
     this.state = {
       users: [],
-      modalIsOpen: false,
+      createModalIsOpen: false,
       userInfo: {
         name: ''
       }
@@ -30,20 +30,7 @@ export default class UserList extends React.Component {
     const { userInfo } = this.state
     client.post('users', userInfo)
       .then(res => {
-        this.closeModal()
-        const users = res.data.Value
-        this.setState({ users })
-      })
-      .catch(err => console.log(err))
-  }
-
-  handleUpdateUser = (e, id) => {
-    console.log(id)
-    e.preventDefault()
-    const { userInfo } = this.state
-    client.put(`users/${id}`, userInfo)
-      .then(res => {
-        this.closeModal()
+        this.closeCreateModal()
         const users = res.data.Value
         this.setState({ users })
       })
@@ -61,14 +48,9 @@ export default class UserList extends React.Component {
       .catch(err => console.log(err))
   }
 
+  openCreateModal = () => this.setState({ createModalIsOpen: true })
 
-  openModal = () => {
-    this.setState({ modalIsOpen: true })
-  }
-
-  closeModal = () => {
-    this.setState({ modalIsOpen: false })
-  }
+  closeCreateModal = () => this.setState({ createModalIsOpen: false })
 
   handleInputChange = e => {
     const { userInfo } = this.state
@@ -76,28 +58,27 @@ export default class UserList extends React.Component {
     this.setState({ userInfo })
   }
 
+  setUsers = users => this.setState({ users })
+
   render() {
     const userColumns = this.state.users.map((user, idx) => {
       const columnProps = {
         user,
         handleDeleteUser: this.handleDeleteUser,
-        modalIsOpen: this.state.modalIsOpen,
-        openModal: this.openModal,
-        closeModal: this.closeModal,
         inputChange: this.handleInputChange,
-        submit: this.handleUpdateUser
+        userInfo: this.state.userInfo,
+        setUsers: this.setUsers
       }
       return <UserTableColumn key={idx} {...columnProps}/>
     })
 
     const newModalProps = {
-      modalIsOpen: this.state.modalIsOpen,
-      closeModal: this.closeModal,
+      modalIsOpen: this.state.createModalIsOpen,
+      closeModal: this.closeCreateModal,
       id: 0,
       inputChange: this.handleInputChange,
       submit: this.handleSaveUser
     }
-    console.log(this.state.userInfo)
     return (
       <React.Fragment>
         <table>
@@ -111,7 +92,7 @@ export default class UserList extends React.Component {
             {userColumns}
           </tbody>
         </table>
-        <a onClick={this.openModal}>新規ユーザー登録</a>
+        <a onClick={this.openCreateModal}>新規ユーザー登録</a>
         <SaveUserModal {...newModalProps}/>
       </React.Fragment>
     )

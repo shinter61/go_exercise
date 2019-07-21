@@ -17,5 +17,7 @@ func CreateUser(c echo.Context) (err error) {
 
 	db.Create(&u)
 
-	return c.JSON(http.StatusCreated, u)
+	var users []model.User
+	result := db.Find(&users)
+	return c.JSON(http.StatusCreated, result)
 }
