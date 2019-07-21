@@ -15,11 +15,12 @@
       "ecmaVersion": 2018,
       "sourceType": "module"
   },
+  "parser": "babel-eslint",
   "plugins": [
       "react"
   ],
   "rules": {
-      "no-console":"warn",
+      "no-console": "off",
       "indent": [
           "error",
           2
@@ -31,10 +32,6 @@
       "quotes": [
           "error",
           "single"
-      ],
-      "semi": [
-          "error",
-          "always"
       ]
   }
 }

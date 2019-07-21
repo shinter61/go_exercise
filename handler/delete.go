@@ -15,5 +15,7 @@ func DeleteUser(c echo.Context) (err error) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	db.First(u, id)
 	db.Delete(u)
-	return c.NoContent(http.StatusNoContent)
+	var users []model.User
+	result := db.Find(&users)
+	return c.JSON(http.StatusOK, result)
 }

@@ -9,6 +9,7 @@
     "@babel/node": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
@@ -31,7 +32,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.9.1"
   },
   "scripts": {
     "dev": "babel-node front_end/server.js"

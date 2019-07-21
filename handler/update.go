@@ -20,5 +20,8 @@ func UpdateUser(c echo.Context) (err error) {
 	}
 
 	db.Model(u).Update("Name", u.Name)
-	return c.JSON(http.StatusOK, u)
+
+	var users []model.User
+	result := db.Find(&users)
+	return c.JSON(http.StatusOK, result)
 }
