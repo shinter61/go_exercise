@@ -1,10 +1,12 @@
 ## 概要  
 
-goの試し書きリポジトリ(echo + gorm + mysql + docker)
+goの試し書きリポジトリ(echo + gorm + mysql + docker + react)
 
 ## 起動  
 
-docker-compose up / start
+① docker-compose up / start
+
+② npm run dev
 
 ## とてもお世話になったサイト  
 
