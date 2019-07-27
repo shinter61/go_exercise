@@ -1,7 +1,7 @@
 FROM golang:1.11.2-alpine3.8 AS build
 
-WORKDIR /go
-ADD . /go
+WORKDIR /
+ADD . /
 
 RUN apk update && \
     apk add --no-cache git && \

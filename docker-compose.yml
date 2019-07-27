@@ -11,8 +11,6 @@ services:
       - 1323:1323
     depends_on:
       - db
-    environment:
-      - "GOPATH=/go"
   db:
     image: mysql:latest
     container_name: go_db
