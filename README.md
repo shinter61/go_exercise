@@ -8,6 +8,10 @@ goの試し書きリポジトリ(echo + gorm + mysql + docker + react)
 
 ② npm run dev
 
+## 開発画面
+
+http://localhost:3000
+
 ## とてもお世話になったサイト  
 
 http://cuto.unirita.co.jp/gostudy/

@@ -1,0 +1,32 @@
+.top_page {
+  width: 100%;
+
+  .top__header {
+    height: 100px;
+    background-color: rgb(13, 67, 117);
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    .title {
+      margin-top: 40px;
+      margin-left: 120px;
+      width: 300px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    ul {
+      margin-top: 40px;
+      margin-right: 120px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    a:visited {
+      color: #fff;
+    }
+  }
+
+  .top__ranking__body {
+    height: 1400px;
+    background-color: #fff;
+  }
+}

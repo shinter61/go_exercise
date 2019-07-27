@@ -2,6 +2,7 @@ import React from 'react'
 import UserList from './user_list/UserList'
 import TopPage from './top/TopPage'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import './reset.css'
 
 class App extends React.Component {
   render() {
