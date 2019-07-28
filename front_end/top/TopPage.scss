@@ -1,11 +1,12 @@
 .top_page {
   width: 100%;
+  background-color: #fff;
 
   .top__header {
     height: 100px;
-    background-color: rgb(13, 67, 117);
     display: flex;
     justify-content: space-between;
+    // color: rgb(13, 67, 117);
     color: #fff;
     .title {
       margin-top: 40px;
@@ -19,14 +20,100 @@
       margin-right: 120px;
       font-weight: 500;
       font-size: 18px;
+      li {
+        display: inline-block;
+        margin-right: 20px;
+      }
     }
     a:visited {
+      // color: rgb(13, 67, 117);
       color: #fff;
     }
   }
 
+  .top__background__image {
+    background-image: url('../../public/images/hinode.jpg');
+    background-size: cover;
+    height: 700px;
+  }
+
+  .top__declare {
+    color: #fff;
+    height: 300px;
+    width: 500px;
+    margin-left: 32%;
+    margin-right: 32%;
+    margin-top: 130px;
+    h1 {
+      text-align: center;
+      font-family: arial narrow;
+      font-size: 50px;
+      letter-spacing: 12px;
+    }
+    p {
+      width: 500px;
+      margin-top: 20px;
+      margin-left: 60px;
+    }
+    #first_column {
+      margin-top: 150px;
+    }
+  }
+
   .top__ranking__body {
-    height: 1400px;
-    background-color: #fff;
+    height: 600px;
+    color: rgb(13, 67, 117);
+    ol {
+      width: 500px;
+      margin: auto;
+      li {
+        margin-bottom: 50px;
+      }
+      span {
+        color: rgb(186, 255, 74);
+        margin-right: 50px;
+      }
+      #first {
+        margin-top: 70px;
+        font-size: 36px;
+      }
+      #second {
+        font-size: 32px;
+      }
+      #third {
+        font-size: 28px;
+      }
+      #fourth {
+        font-size: 24px;
+      }
+      #fifth {
+        font-size: 20px;
+      }
+    }
+  }
+  .top__ranking__title {
+    width: 500px;
+    margin-left: 32%;
+    margin-right: 32%;
+    margin-top: 70px;
+    font-size:  40px;
+    font-family: Hiragino Maru Gothic ProN;
+    text-align: center;
+    letter-spacing: 4px;
+  }
+
+  .top__footer {
+    height: 100px;
+    background-color: rgb(13, 67, 117);
+    color: white;
+    ul {
+      float: right;
+      margin-top: 40px;
+      margin-right: 100px;
+    }
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    }
   }
 }
