@@ -18,6 +18,7 @@ export default class UserList extends React.Component {
   componentDidMount() {
     client.get('users')
       .then(res => {
+        console.log(res)
         const users = res.data.Value
         this.setState({ users })
       })

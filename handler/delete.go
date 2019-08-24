@@ -1,14 +1,16 @@
 package handler
 
- import (
+import (
 	"net/http"
 	"strconv"
-	"github.com/labstack/echo"
+
 	"../model"
+	"github.com/labstack/echo"
 )
 
+// DeleteUser : ユーザー削除
 func DeleteUser(c echo.Context) (err error) {
-	db := gormConnect()
+	db := GormConnect()
 	defer db.Close()
 
 	u := &model.User{}

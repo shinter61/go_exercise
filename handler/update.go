@@ -3,12 +3,14 @@ package handler
 import (
 	"net/http"
 	"strconv"
+
 	"../model"
 	"github.com/labstack/echo"
 )
 
+// UpdateUser : ユーザー情報更新
 func UpdateUser(c echo.Context) (err error) {
-	db := gormConnect()
+	db := GormConnect()
 	defer db.Close()
 
 	u := &model.User{}
