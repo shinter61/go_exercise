@@ -2,6 +2,7 @@ import React from 'react'
 import client from '../config/ApiClient'
 import SaveUserModal from './SaveUserModal'
 import UserTableColumn from './UserTableColumn'
+import './UserList.scss'
 
 export default class UserList extends React.Component {
   constructor() {
@@ -82,19 +83,24 @@ export default class UserList extends React.Component {
     }
     return (
       <React.Fragment>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userColumns}
-          </tbody>
-        </table>
-        <a onClick={this.openCreateModal}>新規ユーザー登録</a>
-        <SaveUserModal {...newModalProps}/>
+        <div className='user_list'>
+          <div className='title'>
+            <h1>ユーザー一覧</h1>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userColumns}
+            </tbody>
+          </table>
+          <a className='create_user' onClick={this.openCreateModal}>新規ユーザー登録</a>
+          <SaveUserModal {...newModalProps}/>
+        </div>
       </React.Fragment>
     )
   }

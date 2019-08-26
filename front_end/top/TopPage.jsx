@@ -10,7 +10,7 @@ export default class Top extends React.Component {
           <div className='top__header'>
             <div className='title'>ストフレ！</div>
             <ul>
-              <li><Link to='/users'>login</Link></li>
+              <li><Link to='/sign_in'>login</Link></li>
               <li><Link to='/users'>admin</Link></li>
             </ul>
           </div>

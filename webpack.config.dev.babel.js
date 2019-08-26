@@ -19,10 +19,16 @@ export default {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve:{
-    extensions: ['.js','.json','.jsx']
+    extensions: ['.js','.json','.jsx','.ts','.tsx']
   },
   module:{
     rules:[
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader'
+        }
+      },
       {
         test: /\.jsx?$/,
         use:{
