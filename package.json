@@ -15,7 +15,7 @@
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "sass-loader": "^7.1.0",
